@@ -1,0 +1,697 @@
+.Header-Section{
+    background-color: #ecedf6;
+    background-size: cover;
+    background-position: center;
+}
+
+.Header-Section .navbar{
+    background: transparent;
+    height: auto;
+}
+
+.Header-Section .navbar img{
+    height: auto;
+    width: auto;
+    margin-left: 100px;
+}
+
+.Header-Section .navbar-brand img{
+    width: 150px;
+    height: 100%;
+}
+
+
+.banner-card .Banner-btn{
+    position: absolute;
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 70px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.banner-card .Banner-btn:hover{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 17px 80px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.Header-Section .navbar-nav{
+    margin-right: 50px;   
+}
+
+.Header-Section .navbar-nav .nav-link{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #1c2790;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.Header-Section .navbar-nav .nav-link:hover{
+    color: #cdae2c;
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+/* Second-Section */
+.Second-Section{
+    background-size: cover;
+}
+
+.Second-Section img{
+    width: 85%;
+    margin-left: 120px;
+    height: auto;
+}
+
+/* Third-Section */
+.Third-Section{
+    background-image: url(../images/Top&Bottom_Cloud.png);
+    background-size: cover;
+}
+
+.Third-Section img{
+    width: 85%;
+    margin-left: 120px;
+    height: auto;
+}
+
+.Fourth-Section img{
+    width: 85%;
+    margin-left: 120px;
+    height: auto;
+}
+
+/*Fourth-Section*/
+.Fourth-Section .Youth_Taking_Action-btn{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 70px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+
+.Fourth-Section .Youth_Taking_Action-btn:hover{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 17px 80px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/* About_Header-Section */
+
+.About_Header-Section{
+    background-color: #ecedf6;
+    background-size: cover;
+    background-position: center;
+}
+
+.About_Header-Section .navbar{
+    background: transparent;
+    height: auto;
+}
+
+.About_Header-Section .navbar img{
+    height: 30px;
+    width: 30px;
+    margin-left: 100px;
+}
+
+.About_Header-Section .navbar-brand img{
+    width: 150px;
+    height: 100%;
+}
+
+.About_Header-Section .navbar-nav{
+    margin-right: 50px;
+}
+
+.About_Header-Section .navbar-nav .nav-link{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #1c2790;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.About_Header-Section .navbar-nav .nav-link:hover{
+    color: #cdae2c;
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+/* Entries_Header-Section */
+
+.Entries_Header-Section{
+    background-color: #ecedf6;
+    background-size: cover;
+    background-position: center;
+}
+
+.Entries_Header-Section .navbar{
+    background: transparent;
+    height: auto;
+}
+
+.Entries_Header-Section .navbar img{
+    height: auto;
+    width: auto;
+    margin-left: 100px;
+}
+
+.Entries_Header-Section .navbar-brand img{
+    width: 150px;
+    height: 100%;
+}
+
+.Entries_Header-Section .navbar-nav{
+    margin-right: 50px;
+}
+
+.Entries_Header-Section .navbar-nav .nav-link{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #1c2790;
+    font-size: 1.7rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.Entries_Header-Section .navbar-nav .nav-link:hover{
+    color: #cdae2c;
+    font-size: 2.3rem;
+    font-weight: bold;
+}
+
+.Entries_Second-Section{
+    background-color: #ffffff;
+    background-size: cover;
+}
+
+.Sector-Label{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #cdae2c;
+    font-size: 3rem;
+    font-weight: bolder;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.btn-search{
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.btn-search:hover{
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+    transform: scale(1.05);
+}
+
+#Videos-Second-Section .btn {
+  border-radius: 30px;
+  border: 6px solid #ecedf6;
+  background-color: #f5f5f5;
+  color: #1c2790;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#Videos-Second-Section .active{
+  border-radius: 30px;
+  border: 6px solid #ecedf6;
+  background-color: #cdae2c;
+  color: #f5f5f5;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#Videos-Second-Section .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Make all sector cards the same size */
+.sector-card {
+  width: auto;           /* Set card width */
+  height: 180px;          /* Set card height */
+  overflow: hidden;       /* Crop image edges if needed */
+  border-radius: 12px;    /* Rounded corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;      /* Optional: white background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+  transition: transform 0.2s ease;
+  border: 5px solid #ecedf6;
+}   
+
+/* Ensure images fill the card proportionally */
+.sector-card img {
+  width: 100%;
+  height: 100%;
+  object-fit:  contain;      /* Ensures uniform fill */
+  transition: transform 0.3s ease;
+}
+
+/* Optional hover effect */
+.sector-card:hover {
+  transform: scale(1.05);
+}
+
+/*Sector Videos Card*/
+.search-overlay {
+  top: 55%; /* moves it slightly higher (default was 50%) */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  font-family: 'Bebas Neue', sans-serif;
+  
+}
+
+.form-control{
+    border: 2px solid #cdae2c;
+    text-align: center;
+}
+
+.Videos-Second-Section{
+    background-color: #ffffff;
+    background-size: cover;
+}
+
+.Videos-Second-Section iframe{
+    aspect-ratio: 16/9;
+}
+
+.Videos-Second-Section .card{
+    position: relative;
+    overflow: hidden;
+    background-color: transparent;
+    transition: transform 0.2s ease;
+    border: 5px solid #ecedf6;
+}
+
+.Videos-Second-Section .card h5{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #1c2790;
+    font-size: 1.5rem;
+    font-weight: bolder;
+}
+
+.Videos-Second-Section .card h8{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #cdae2c;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.Videos-Second-Section .card p{
+    font-family: 'Montserrat', sans-serif;
+    color: #bfbfbf;
+    font-size: 1rem;
+}
+
+.Videos-Second-Section .video-entry-card:hover{
+    transform: scale(1.02);    
+}
+
+.highlight {
+  box-shadow: 0 0 25px rgba(0, 123, 255, .7);
+  transform: scale(1.05);
+  transition: all 0.5s ease;
+  border: solid 2px #cdae2c !important;
+}
+
+.highlight-remove {
+  transition: all 0.5s ease;
+  transform: scale(1);
+  box-shadow: none;
+}
+
+/* Footer */
+
+.Footer-Section{
+ background-image: url(./images/Upper_CloudV2.png);
+ background-size: cover;
+ margin-top: 20px;
+ border-top: 2px solid #cdae2c;
+}
+
+.footer {
+  padding: .5rem; /* Set footer padding to twice the navbar's padding */
+  text-align: center;
+  font-family: 'Montserrat', 'sans-serif';
+}
+
+.footer img{
+  height: auto;
+  margin-top: 10px;
+  border-radius: 8px; /* Example: Adding rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example: Adding a shadow */
+ 
+}
+
+.footer p{
+  font-family: 'Montserrat', 'sans-serif';
+  color: #1c2790;
+  font-size: 1.05rem;
+  margin-left: 20px;
+}
+
+.footer .body img{
+  height: 3rem; 
+}
+
+
+.large-icon{
+  color: #1c2790;
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+.social-icons{
+  color: #1c2790;
+  margin-top: 50px;
+  margin-left: 50px !important;
+}
+
+@media (max-width: 800px){
+    
+.Header-Section .navbar .navbar-brand img{
+    width: 150px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.banner-card .Banner-btn{
+    position: absolute;
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.Fourth-Section .Youth_Taking_Action-btn{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 5px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+
+.Fourth-Section .Youth_Taking_Action-btn:hover{
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 7px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.Header-Section .navbar-nav .nav-link{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #1c2790;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.About_Header-Section .navbar .navbar-brand img{
+    width: 150px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.About_Header-Section .navbar-nav .nav-link{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #1c2790;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+.Entries_Header-Section .navbar .navbar-brand img{
+    width: 150px;
+    height: 100%;
+    margin-left: 20px;
+}
+
+.Entries_Header-Section .navbar-nav .nav-link{
+    font-family: 'Bebas Neue', sans-serif;
+    color: #1c2790;
+    font-size: 1.25rem;
+    font-weight: bolder;
+    margin-right: 20px;
+}
+
+/*Sector Videos Card*/
+.search-overlay {
+  top: 45%; /* moves it slightly higher (default was 50%) */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  font-family: 'Bebas Neue', sans-serif;
+  
+}
+
+#Videos-Second-Section .btn {
+  border-radius: 30px;
+  border: 6px solid #ecedf6;
+  background-color: #f5f5f5;
+  color: #1c2790;
+  font-family: "Montserrat", sans-serif;
+  font-size: small;
+  margin-top: 10px;
+}
+
+#Videos-Second-Section .active{
+  border-radius: 30px;
+  border: 6px solid #ecedf6;
+  background-color: #cdae2c;
+  color: #f5f5f5;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#Videos-Second-Section .btn:hover {
+  transform: scale(1.05);
+}
+
+
+.Second-Section img{
+    width: 85%;
+    margin-left: 50px;
+    height: auto;
+}
+
+.Third-Section img{
+    width: 85%;
+    margin-left: 40px;
+    height: auto;
+}
+
+.Fourth-Section img{
+    width: 85%;
+    margin-left: 40px;
+    height: auto;
+}
+
+.footer img{
+  height: 70%;
+  margin-top: 10px;
+  border-radius: 8px; /* Example: Adding rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example: Adding a shadow */
+ 
+}
+
+.footer .body img{
+  height: 2.5rem; 
+}
+
+}
+    
+@media (max-width: 530px){
+.banner-card .Banner-btn{
+    position: absolute;
+    top: 89%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .65rem;
+    font-weight: bold;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.Fourth-Section .Youth_Taking_Action-btn{
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: .65rem;
+    font-weight: bold;
+    padding: 5px 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+/*For entries Card */
+.col-6 {
+    flex: 0 0 45%;
+    max-width: 45%;
+  }
+
+/*Sector Videos Card*/
+.search-overlay {
+  top: 45%; /* moves it slightly higher (default was 50%) */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 5;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: .5rem;
+}
+
+.sector-card {
+  width: auto;           /* Set card width */
+  height: 180px;          /* Set card height */
+  overflow: hidden;       /* Crop image edges if needed */
+  border-radius: 12px;    /* Rounded corners */
+  display: flex;
+  justify-content: center;
+  align-items: center;      /* Optional: white background */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Optional: subtle shadow */
+  transition: transform 0.2s ease;
+  border: 5px solid #ecedf6
+}
+
+#Videos-Second-Section .btn {
+  border-radius: 30px;
+  border: 6px solid #ecedf6;
+  background-color: #f5f5f5;
+  color: #1c2790;
+  font-size: xx-small;
+  margin-top: 10px;
+}
+
+#Videos-Second-Section .active{
+  border-radius: 30px;
+  border: 6px solid #ecedf6;
+  background-color: #cdae2c;
+  color: #f5f5f5;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+
+#Videos-Second-Section .btn:hover {
+  transform: scale(1.05);
+}
+
+
+.footer img{
+  height: 60%;
+  margin-top: 10px;
+  border-radius: 8px; /* Example: Adding rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Example: Adding a shadow */
+ 
+}
+
+.footer .body img{
+  height: 2rem; 
+}
+
+}

@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+    <title>NextGenPh</title>
+  </head>
+  <body>
+    <!--Header Section-->
+    <section id="About_Header" class="About_Header-Section">
+           <nav class="navbar navbar-expand-lg bg-transparent mb-5 top-0 start-0 w-100">
+        <div class="container-fluid">
+
+            <a class="navbar-brand" href="index.html">
+            <img src="./images/Logo.png" alt="Logo"  class="d-inline-block align-text-top">
+            </a>
+       
+
+            <!-- Toggler Button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="About.html">About NextGenPh</a>
+              </li> -->
+              <li class="nav-item">
+                <a class="nav-link" href="Entries.html">Entries</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link" href="#Projects-Section">Contact Us</a>
+              </li> -->
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="card bg-transparent border-0">
+        <img src="./images/Bottom_CLoud V2(Short).png" class="card-img" alt="">
+
+          <!-- Search Bar -->
+          <div class="search-overlay position-absolute top-35 start-50 translate-middle w-75 w-md-50">
+            <form class="d-flex justify-content-center" role="search" onsubmit="handleSearch(event)">
+              <input 
+                class="form-control me-2" 
+                type="Search" 
+                placeholder="Search entries in Health and Nutrition...  " 
+                aria-label="Search" 
+                id="searchInput"
+              >
+              <button class="btn btn-search" type="submit">Search</button>
+            </form>
+          </div>
+      </div>
+
+      <!-- Start of Videos -->
+      <section id="Videos-Second-Section" class="Videos-Second-Section">
+        <div class="container">
+
+          <!-- Buttons -->
+          <div class="row justify-content-center mb-4">
+            <div class="col-auto"><a href="Education_Sector.html"><button class="btn px-4">Education</button></a></div>
+            <div class="col-auto"><a href="Health_and_Nutrition_Sector.html"><button class="btn active px-4">Health and Nutrition</button></a></div>
+            <div class="col-auto"><a href="Social_Welfare_and_Preparation_Sector.html"><button class="btn px-4">Social Welfare and Protection</button></a></div>
+            <div class="col-auto"><a href="Transportation_Sector.html"><button class="btn px-4">Transportation</button></a></div>
+            <div class="col-auto"><a href="Infrastructure_Sector.html"><button class="btn px-4">Infrastructure</button></a></div>
+            <div class="col-auto"><a href="Environment_Sector.html"><button class="btn px-4">Environment Sector</button></a></div>
+            <div class="col-auto"><a href="Tourism_Sector.html"><button class="btn px-4">Tourism Sector</button></a></div>
+            <div class="col-auto"><a href="Food_and_Agriculture_Sector.html"><button class="btn px-4">Food and Agriculture</button></a></div>
+            <div class="col-auto"><a href="Labor_and_Employment_Sector.html"><button class="btn px-4">Labor and Employment</button></a></div>
+            <div class="col-auto"><a href="Security_Justice_and_Peace_Sector.html"><button class="btn px-4">Security, Justice and Peace</button></a></div>
+            <div class="col-auto"><a href="Arts_Culture_and_Sports_Sector.html"><button class="btn px-4">Arts, Culture and Sports</button></a></div>
+            <div class="col-auto"><a href="Energy_Sector.html"><button class="btn px-4">Energy</button></a></div>
+          </div>
+
+          <div class="card bg-transparent border-0 mx-auto">
+          <div class="row row-cols-1 row-cols-md-3 g-3 align-items-stretch mx-auto mb-4">
+            <div class="col">
+              <div class="card video-entry-card shadow-sm h-100">
+                <iframe id="ATAY: AI Multi-Modal Tool Assessing Young Adult’s Biomarker And Factors For Metabolic Dysfunction-Associated Fatty Liver Disease (MAFLD) Risk Detection" src="https://www.youtube.com/embed/EqKu-qwF1kI?si=UBocrOnEnbcg9HNY" frameborder="0"></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">ATAY: AI Multi-Modal Tool Assessing Young Adult’s Biomarker 
+                    And Factors For Metabolic Dysfunction-Associated Fatty Liver Disease (MAFLD) Risk Detection</h5>
+                  <h8 class="card-title">Quezon City Science High School</h8>
+                  <p class="card-text">“ATAY” model, designed to automatically assess liver health and 
+                    MAFLD risk in young adults by analyzing liver health datasets related to NAFLD such as biomarkers, 
+                    demographics, lifestyle habits, and medical history.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card video-entry-card shadow-sm h-100">
+                <iframe id="TRAC: Treatment Recording and Admission Care System for Hospitalized Patients" src="https://www.youtube.com/embed/rpQbmuZytQs?si=9E-QtdJCQrIqgr3Y" frameborder="0"></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">TRAC: Treatment Recording and Admission Care System for Hospitalized Patients</h5>
+                  <h8 class="card-title">Philippine Science High School - Central Visayas Campus</h8>
+                  <p class="card-text">TRAC is a digital prescription and medication tracking system designed strictly for 
+                    admitted patients. Each patient will be provided with an ID band containing both a barcode and a QR code. 
+                    The barcode will be used by healthcare workers, who can scan it with a hospital device or mobile phone to access 
+                    the patient’s complete medication data, allergies, and restrictions. The QR code will be intended for patients, allowing 
+                    them to quickly view their prescriptions, schedules, and dietary notes through the hospital’s website or portal.</p>
+                </div>
+              </div>
+            </div>
+           <div class="col">
+              <div class="card video-entry-card shadow-sm h-100">
+                <iframe id="Community Voice PH" src="https://www.youtube.com/embed/fcylMub4HPI?si=TZT0-KYxz7YlGQHr" frameborder="0"></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">Community Voice PH</h5>
+                  <h8 class="card-title">Amontay National High School</h8>
+                  <p class="card-text">Community Voice PH: Boses ng Komunidad introduces a digital 
+                    platform where citizens directly participate in shaping development priorities. 
+                    The application uses creative innovations such as mobile accessibility, interactive project 
+                    listings, and transparent voting systems to ensure that every voice is heard. </p>
+                </div>
+              </div>
+            </div>
+            </div>
+          <div class="row row-cols-1 row-cols-md-3 g-3 align-items-stretch mx-auto mb-4">
+            <div class="col">
+              <div class="card video-entry-card shadow-sm h-100">
+                <iframe id="Dementra: An AI-Powered Smart Anklet and Mobile Application for Safer and Smarter Dementia Care." src="https://www.youtube.com/embed/trG33E5NF0s?si=A6b0bliYdv40kCHd" frameborder="0"></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">Dementra: An AI-Powered Smart Anklet and Mobile Application for Safer and Smarter Dementia Care.</h5>
+                  <h8 class="card-title">Camarines Norte State College</h8>
+                  <p class="card-text">Demetra is an AI-powered smart anklet paired with a mobile 
+                    application designed to improve the safety, monitoring, and support of individuals 
+                    living with dementia and their caregivers.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card video-entry-card shadow-sm h-100">
+                <iframe id="Nutrindahan: Empowering Farmers, Nourishing Families, and Creating Smarter Access to Nutrition" src="https://www.youtube.com/embed/eue5o9iA-jU?si=gnNw5kItl6TlsJTt" frameborder="0"></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">Nutrindahan: Empowering Farmers, Nourishing Families, and Creating Smarter Access to Nutrition</h5>
+                  <h8 class="card-title">Carlos Hilado Memorial State University</h8>
+                  <p class="card-text">Nutrindahan is a digital platform combining Artificial Intelligence-powered 
+                    nutrition guidance, community food mapping, and virtual coaching. To ensure seamless 
+                    integration and effective implementation, the Local Nutrition Office will handle the 
+                    backend data management and AI model refinement, while the Local Agriculture Office, in 
+                    coordination with community health workers, will manage front-line services, ensuring 
+                    direct engagement with users. This collaborative approach will harmonize with existing 
+                    local and national programs, such as the Philippine Plan of Action for Nutrition and the 
+                    National Feeding Program.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card video-entry-card shadow-sm h-100">
+                <iframe id="Konsulta Kiosk: Improving Healthcare Access for Patients and Providers through Telehealth and Digital Health Record Integration In Urban Communities" src="https://www.youtube.com/embed/LiYpidkf41A?si=wFM-WlGbWALgDzTg" frameborder="0"></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">Konsulta Kiosk: Improving Healthcare Access for Patients and Providers through Telehealth and Digital Health Record Integration In Urban Communities</h5>
+                  <h8 class="card-title">Lyceum of the Philippines University - Cavite</h8>
+                  <p class="card-text">The Konsulta Kiosk is a solar-powered telehealth booth integrated with a 
+                    Digital Health Record (DHR) system, designed to act as a bridge between barangay 
+                    health centers and hospitals. It decentralizes primary consultations, digitizes patient 
+                    records, and links them seamlessly to higher-level care.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row row-cols-1 row-cols-md-3 g-3 align-items-stretch mx-auto mb-4">
+            <div class="col">
+              <div class="card video-entry-card shadow-sm h-100">
+                <iframe id="Anthromax" src="https://www.youtube.com/embed/trG33E5NF0s?si=A6b0bliYdv40kCHd" frameborder="0"></iframe>
+                <div class="card-body">
+                  <h5 class="card-title">Anthromax</h5>
+                  <h8 class="card-title">Cagayan State University - Andrews Campus</h8>
+                  <p class="card-text">Anthromax is an all-in-one, portable briefcase that 
+                    integrates essential anthropometric tools into a single, cohesive unit. This durable, 
+                    hardshell case contains a fixed digital weighing scale and a collapsible height rod. The 
+                    tools automatically transmit data wirelessly to a detachable, tablet-like screen, 
+                    eliminating manual data entry and reducing human error.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+    </section>
+
+
+    <section id="Footer-Section" class="Footer-Section">
+      <div class="card bg-transparent border-0">
+        <footer class="footer m-auto py-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                
+                <div class="row gy-2">
+                  <div class="col-md-4">
+                    <img src="./images/development-academy-of-the-philippines.jpg" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="body">
+                      <a href="https://dap.edu.ph"><img src="./images/condensed vertical.png" class="img-fluid rounded-start" alt="..."></a>
+                      <p class="card-text">NextGenPh</p>
+                      <a href="https://gmail.com" class="text-decoration-none">
+                        <p class="card-text"><small class="text-muted">capdev.coepsp@dap.edu.ph</small></p>
+                      </a>
+                      <p class="card-text"><small class="text-muted">Center of Excellence on Public Sector Productivity</small></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="social-icons mx-auto">
+                    <a href="https://www.facebook.com/dap.edu.ph" class="me-5 text-reset"><i class="bi bi-facebook large-icon"></i></a>
+                    <a href="https://www.linkedin.com/school/development-academy-philippines-dap/" class="me-5 text-reset"><i class="bi bi-linkedin large-icon"></i></a>
+                    <a href="https://x.com/dap_edu_ph" class="me-5 text-reset"><i class="bi bi-twitter-x large-icon"></i></a>
+                    <a href="https://www.youtube.com/@dap-edu-ph" class="me-5 text-reset"><i class="bi bi-youtube large-icon"></i></a>
+                  </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+
+    <script>
+      function handleSearch(event) {
+        event.preventDefault();
+        const query = document.getElementById('searchInput').value.trim().toLowerCase();
+
+        const sections = {
+          "atay": "ATAY: AI Multi-Modal Tool Assessing Young Adult’s Biomarker And Factors For Metabolic Dysfunction-Associated Fatty Liver Disease (MAFLD) Risk Detection",
+          "trac": "TRAC: Treatment Recording and Admission Care System for Hospitalized Patients",
+          "project namnama": "Community Voice PH",
+          "namnama":"Community Voice PH",
+          "community voice ph": "Community Voice PH",
+          "community": "Community Voice PH",
+          "amontay national high school ": "Community Voice PH",
+          "dementra": "Dementra: An AI-Powered Smart Anklet and Mobile Application for Safer and Smarter Dementia Care.",
+          "nutrindahan": "Nutrindahan: Empowering Farmers, Nourishing Families, and Creating Smarter Access to Nutrition",
+          "konsulta kiosk": "Konsulta Kiosk: Improving Healthcare Access for Patients and Providers through Telehealth and Digital Health Record Integration In Urban Communities",
+          "konsulta": "Konsulta Kiosk: Improving Healthcare Access for Patients and Providers through Telehealth and Digital Health Record Integration In Urban Communities",
+          "anthromax": "Anthromax",
+        };
+
+        const matchedId = Object.keys(sections).find(key => query.includes(key));
+
+        if (matchedId) {
+          const section = document.getElementById(sections[matchedId]);
+          if (section) {
+            section.scrollIntoView({ behavior: "smooth", block: "center" });
+
+            // Add the highlight effect to the card containing the iframe
+            const card = section.closest('.card');
+            if (card) {
+              card.classList.add('highlight');
+
+              // Remove the highlight after 2 seconds
+              setTimeout(() => {
+                card.classList.remove('highlight');
+                card.classList.add('highlight-remove');
+
+                setTimeout(() => card.classList.remove('highlight-remove'), 500);
+              }, 2000);
+            }
+          }
+        } else {
+          alert("No matching section found. Try another keyword!");
+        }
+      }
+    </script>
+
+
+
+
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+
+</html>
