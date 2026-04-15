@@ -16,98 +16,27 @@
 }
 
 .Header-Section .navbar-brand img{
-    width: 300px;
+    width: 150px;
     height: 100%;
 }
 
-.banner-card {
-  position: relative;
+
+.banner-card .Banner-btn{
+    position: absolute;
+    top: 87%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1c2790;
+    color: #f5f5f5;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 15px 70px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
 }
-
-.logo-hover-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  transition: transform 0.4s ease;
-}
-
-.logo-img {
-  width: min(70rem, 55vw);
-  transition: transform 0.4s ease;
-  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.3));
-  display: block;
-  animation: logoGlow 2.5s ease-in-out infinite;
-}
-
-@keyframes logoGlow {
-  0%   { filter: drop-shadow(0 0 6px rgba(28, 39, 144, 0.5)); }
-  50%  { filter: drop-shadow(0 0 6px rgba(205, 174, 44, 0.85)); }
-  100% { filter: drop-shadow(0 0 6px rgba(241, 112, 40, 0.4)); }
-}
-
-.logo-desc-collapse {
-  max-height: 0;
-  overflow: hidden;
-  opacity: 0;
-  transition: max-height 0.5s ease, opacity 0.4s ease;
-}
-
-.logo-hover-wrapper:hover .logo-img {
-  transform: translateY(-12px);
-}
-
-.logo-hover-wrapper:hover .logo-desc-collapse {
-  max-height: 300px;
-  opacity: 1;
-}
-
-.logo-desc-box {
-  background: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(4px);
-  max-width: 55vw;
-  margin: 0 auto;
-  border: 1px solid rgba(255,255,255,0.2);
-  font-size: 1.2rem;
-}
-
-/* Button — now in normal flow, no absolute */
-.Banner-btn {
-  background-color: #1c2790;
-  color: #f5f5f5;
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 1.5rem;
-  font-weight: bold;
-  padding: 15px 70px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s, color 0.3s, transform 0.3s;
-  margin-bottom: 200px;
-}
-
-.Banner-btn:hover {
-  background-color: #2e3eb5;
-  color: #fff;
-}
-
-@media (max-width: 978px) {
-.logo-hover-wrapper:hover .logo-desc-collapse {
-  max-height: 250px;
-  opacity: 1;
-}
-
-  .logo-desc-box {
-    max-width: 75vw;
-    font-size: .7rem;
-    margin-bottom: 4rem !important;
-  }
-
-  .Banner-btn {
-    font-size: 1.1rem;
-    padding: 20px 40px;
-  }
-}
-
 
 .banner-card .Banner-btn:hover{
     position: absolute;
