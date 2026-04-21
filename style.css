@@ -10,8 +10,6 @@
 }
 
 .Header-Section .navbar img{
-    height: auto;
-    width: auto;
     margin-left: 100px;
 }
 
@@ -19,6 +17,7 @@
     width: 300px;
     height: 100%;
 }
+
 
 .banner-card {
   position: relative;
@@ -222,15 +221,11 @@
     height: auto;
 }
 
-.About_Header-Section .navbar img{
-    height: 30px;
-    width: 30px;
-    margin-left: 100px;
-}
 
 .About_Header-Section .navbar-brand img{
-    width: 150px;
+    width: 300px;
     height: 100%;
+    margin-left: 100px;
 }
 
 .About_Header-Section .navbar-nav{
@@ -265,13 +260,11 @@
 }
 
 .Entries_Header-Section .navbar img{
-    height: auto;
-    width: auto;
     margin-left: 100px;
 }
 
 .Entries_Header-Section .navbar-brand img{
-    width: 150px;
+    width: 300px;
     height: 100%;
 }
 
@@ -598,11 +591,6 @@
     margin-right: 20px;
 }
 
-.About_Header-Section .navbar .navbar-brand img{
-    width: 150px;
-    height: 100%;
-    margin-left: 20px;
-}
 
 .About_Header-Section .navbar-nav .nav-link{
     font-family: 'Bebas Neue', sans-serif;
@@ -610,12 +598,6 @@
     font-size: 1.25rem;
     font-weight: bolder;
     margin-right: 20px;
-}
-
-.Entries_Header-Section .navbar .navbar-brand img{
-    width: 150px;
-    height: 100%;
-    margin-left: 20px;
 }
 
 .Entries_Header-Section .navbar-nav .nav-link{
