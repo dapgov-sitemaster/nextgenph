@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entries — NextGenPH | Development Academy of the Philippines</title>
+<meta name="description" content="Browse the NextGenPH entries by sector.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<!-- data-robot-mode="pinned": the robot stays in the bottom-right corner of the screen on this page. -->
+<body class="page-sector" data-robot-mode="pinned">
+
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="nav-float">
+    <a class="brand" href="index.html" aria-label="NextGenPH home">
+      <img class="brand-logo" src="images/logo-mark.png" alt="NextGenPH">
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="years.html">ENTRIES</a></li>
+        <li><a class="nav-cta" href="https://sites.google.com/dap.edu.ph/nextgenph/home">JOIN NOW</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="entries-head" aria-labelledby="sector-heading">
+    <div class="shell">
+      <a class="back-link" id="backLink" href="sectors.html?year=2025">&larr; All sectors</a>
+      <p class="eyebrow" id="sectorEyebrow">NextGenPH</p>
+      <h1 id="sector-heading" class="sector-title">Entries</h1>
+
+      <div id="entryTools">
+        <form class="entry-search" id="searchForm" role="search">
+          <label class="visually-hidden" for="entrySearch" id="searchLabel">Search entries</label>
+          <input id="entrySearch" type="search" placeholder="Search entries&hellip;" autocomplete="off">
+        </form>
+        <nav class="sector-chips" id="chips" aria-label="Sectors"></nav>
+        <p class="result-count" id="resultCount" role="status" aria-live="polite"></p>
+      </div>
+      <p class="page-msg" id="pageMsg" hidden></p>
+    </div>
+  </section>
+
+  <section class="entries-body" aria-label="Entries">
+    <div class="shell">
+      <ul class="entry-grid" id="entryGrid"></ul>
+      <p class="no-match" id="noMatch" hidden>No entries match your search. Try a different word.</p>
+      <noscript><p class="page-msg">Please turn on JavaScript to see the entries.</p></noscript>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">NextGen<strong>PH</strong></span>
+      <p>An innovation contest by the Development Academy of the Philippines.</p>
+    </div>
+    <div class="footer-contact">
+      <p>DAP Building, San Miguel Avenue, Ortigas Center, Pasig City</p>
+      <p><a href="mailto:capdev.coepsp@dap.edu.ph">capdev.coepsp@dap.edu.ph</a></p>
+      <p>(02) 8631-0921 to 30, local 152</p>
+      <ul class="footer-social" aria-label="DAP on social media">
+        <li><a href="https://www.facebook.com/dap.edu.ph" target="_blank" rel="noopener noreferrer" aria-label="DAP on Facebook (opens in a new tab)"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/school/development-academy-philippines-dap/" target="_blank" rel="noopener noreferrer" aria-label="DAP on LinkedIn (opens in a new tab)"><i class="bi bi-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://x.com/dap_edu_ph" target="_blank" rel="noopener noreferrer" aria-label="DAP on X (opens in a new tab)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.youtube.com/@dap-edu-ph" target="_blank" rel="noopener noreferrer" aria-label="DAP on YouTube (opens in a new tab)"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <p>© 2026 Development Academy of the Philippines. Built to align with DICT's Government Web Hosting Service accessibility standards.</p>
+  </div>
+</footer>
+
+<!-- Robot mascot: drawn on its own small canvas -->
+<canvas id="robotCanvas" aria-hidden="true"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="script.js"></script>
+<script src="robot-model.js"></script>
+<script src="data/entries-2025.js"></script>
+<script src="data/entries-2026.js"></script>
+<script src="entries.js"></script>
+<script src="robot.js"></script>
+<script src="chat-widget.js"></script>
+</body>
+</html>

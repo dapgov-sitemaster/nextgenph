@@ -1,0 +1,1081 @@
+/* =========================================================
+   NextGenPH — Design tokens
+   Sampled directly from the official brand slides.
+   ========================================================= */
+:root {
+  --navy-900: #1b2158;   /* deepest — footer, high-contrast text on paper */
+  --navy-700: #262b86;   /* brand navy — matches "About" / "PH" wordmark */
+  --navy-600: #373d8e;
+  --gold-500: #e3a900;
+  --gold-400: #f2b705;   /* brand gold — matches "Gen" / headings */
+  --gold-300: #f7cb3e;
+  --lavender: #8e98e3;   /* secondary accent, lifted from the illustrations */
+  --paper: #f8f7f4;      /* warm paper background */
+  --paper-dim: #efede6;
+  --ink: #1c2340;
+  --mist: #4a5272;
+
+  --font-display: "Poppins", "Segoe UI", sans-serif;   /* headings: Poppins ExtraBold */
+  --font-body: "Fredoka", "Segoe UI", sans-serif;      /* everything else: Fredoka */
+
+  --shell-width: 1180px;
+}
+
+/* =========================================================
+   Reset & base
+   ========================================================= */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 15% 0%, rgba(142, 152, 227, 0.08), transparent 55%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  line-height: 1.2;
+  margin: 0 0 0.5em;
+}
+
+p { margin: 0 0 1em; }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+
+.shell {
+  width: 100%;
+  max-width: var(--shell-width);
+  margin-inline: auto;
+  padding-inline: 24px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0; top: -48px;
+  background: var(--gold-400);
+  color: var(--navy-900);
+  padding: 12px 20px;
+  font-weight: 600;
+  z-index: 100;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 0; }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--navy-700);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* =========================================================
+   Header — floating pill nav, detached from the viewport edge
+   ========================================================= */
+.site-header {
+  position: fixed;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding-inline: 20px;
+  pointer-events: none; /* only the bar itself is interactive */
+}
+
+.nav-float {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 1040px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  padding: 10px 14px 10px 20px;
+  transition: background-color 0.4s ease, backdrop-filter 0.4s ease,
+              border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Glassmorphism once the page is scrolled past the hero */
+.nav-float.is-scrolled {
+  background: rgba(248, 247, 244, 0.62);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  border-color: rgba(255, 255, 255, 0.35);
+  box-shadow: 0 18px 40px -16px rgba(27, 33, 88, 0.28);
+}
+
+.brand { display: inline-flex; align-items: center; text-decoration: none; }
+.brand-logo { height: 34px; width: auto; display: block; }
+
+.primary-nav ul { list-style: none; display: flex; align-items: center; gap: 26px; margin: 0; padding: 0; }
+.primary-nav a {
+  text-decoration: none;
+  color: var(--navy-700);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.primary-nav a:hover { color: var(--navy-900); }
+.primary-nav .nav-cta {
+  background: var(--gold-400);
+  color: var(--navy-900);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+}
+.primary-nav .nav-cta:hover { background: var(--gold-300); }
+
+.nav-toggle {
+  display: none;
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1px solid rgba(38, 43, 134, 0.25);
+  border-radius: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+.nav-toggle-bar, .nav-toggle-bar::before, .nav-toggle-bar::after {
+  content: ""; position: absolute; left: 10px; right: 10px; height: 2px; background: var(--navy-700);
+}
+.nav-toggle-bar { top: 19px; }
+.nav-toggle-bar::before { top: -6px; }
+.nav-toggle-bar::after { top: 6px; }
+
+@media (max-width: 700px) {
+  .nav-toggle { display: block; }
+  .primary-nav {
+    position: absolute; top: calc(100% + 12px); left: 0; right: 0;
+    background: var(--paper);
+    border: 1px solid rgba(38, 43, 134, 0.1);
+    border-radius: 20px;
+    box-shadow: 0 18px 40px -16px rgba(27, 33, 88, 0.28);
+    display: none;
+  }
+  .primary-nav.is-open { display: block; }
+  .primary-nav ul { flex-direction: column; align-items: flex-start; padding: 20px 24px; gap: 18px; }
+  .primary-nav .nav-cta { align-self: stretch; text-align: center; }
+}
+
+/* =========================================================
+   Hero — logo lockup + intro copy
+   ========================================================= */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 0%, rgba(142, 152, 227, 0.14), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 85% 20%, rgba(242, 183, 5, 0.10), transparent 55%);
+}
+
+/* Blurry glowing circle behind the logo/text — brightens with scroll */
+.hero-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(620px, 70vw);
+  height: min(620px, 70vw);
+  transform: translate(-50%, -50%) scale(1);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 183, 5, 0.6) 0%, rgba(242, 183, 5, 0.26) 42%, transparent 72%);
+  filter: blur(70px);
+  opacity: 0.32;
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Launch rocket + gold exhaust trail (drawn by script.js).
+   z-index 0: in front of the glow, behind the logo/text (z-index 1)
+   and behind the clouds (z-index 5). */
+.launch-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .launch-canvas { display: none; }
+}
+
+/* =========================================================
+   3D cloud layer — a transparent WebGL canvas centred on the
+   hero/About boundary (50vh up into the hero, 40vh down into
+   About). Drawn by script.js; the canvas itself is invisible.
+   ========================================================= */
+.cloud-stage {
+  position: relative;
+  height: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+
+#cloudCanvas {
+  position: absolute;
+  left: 0;
+  top: -60vh;
+  width: 100%;
+  height: 130vh;
+  display: block;
+  pointer-events: none;
+}
+
+@media (max-width: 760px) {
+  #cloudCanvas { top: -50vh; height: 90vh; }
+}
+
+.hero-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-block: 120px 24vh; /* top clears the nav, bottom keeps text above the clouds */
+}
+
+.hero-logo {
+  width: min(560px, 80vw);
+  height: auto;
+  margin-bottom: 36px;
+  margin-top: 55px;
+}
+
+.hero-lede {
+  max-width: 68ch;
+  font-size: 1.15rem;
+  line-height: 1.7;
+  color: var(--mist);
+}
+
+@media (max-width: 700px) {
+  .hero-inner { padding-block: 100px 20vh; }
+  .hero-lede { font-size: 1.05rem; }
+}
+
+/* =========================================================
+   JOIN NOW — round frosted-glass button with an outer glow
+   ========================================================= */
+.hero-join {
+  --join-size: 70px;            /* button diameter */
+  position: relative;
+  display: inline-flex;
+  width: var(--join-size);
+  height: var(--join-size);
+  margin-top: 36px;              /* space between the paragraph and the button */
+  border-radius: 50%;
+  text-decoration: none;
+  transition: transform 0.25s ease;
+}
+
+/* Soft halo around the button, gently pulsing */
+.hero-join-glow {
+  position: absolute;
+  inset: -22px;                  /* how far the glow spreads past the button */
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(242, 183, 5, 0.6) 0%, rgba(242, 183, 5, 0.2) 55%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+  animation: join-glow 3.2s ease-in-out infinite;
+}
+
+/* The frosted glass circle: blurs what's behind it, text stays sharp */
+.hero-join-core {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.78), rgba(247, 203, 62, 0.58) 48%, rgba(242, 183, 5, 0.5) 100%);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow:
+    0 0 22px 4px rgba(242, 183, 5, 0.45),
+    inset 0 2px 10px rgba(255, 255, 255, 0.65);
+  color: var(--navy-700);
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 0.5rem;
+  letter-spacing: 0.06em;
+  transition: box-shadow 0.25s ease;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.hero-join:hover { transform: scale(1.06); }
+.hero-join:hover .hero-join-core {
+  box-shadow:
+    0 0 34px 10px rgba(242, 183, 5, 0.6),
+    inset 0 2px 10px rgba(255, 255, 255, 0.7);
+}
+.hero-join:focus-visible {
+  outline: 3px solid var(--navy-700);
+  outline-offset: 8px;
+  border-radius: 50%;
+}
+
+@keyframes join-glow {
+  0%, 100% { opacity: 0.65; transform: scale(0.96); }
+  50% { opacity: 1; transform: scale(1.08); }
+}
+
+@media (max-width: 700px) {
+  .hero-join { --join-size: 100px; margin-top: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-join-glow { animation: none; opacity: 0.85; }
+  .hero-join:hover { transform: none; }
+}
+
+/* =========================================================
+   Full-bleed image sections
+   ========================================================= */
+.image-slide {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  padding-block: 24px;
+  overflow: hidden; /* stops the slide-in offset from making the page wider than the screen */
+}
+
+.image-slide + .image-slide {
+  border-top: 1px solid rgba(38, 43, 134, 0.08);
+}
+
+.slide-image {
+  width: 100%;
+  height: 100%;
+  max-height: calc(100vh - 48px);
+  object-fit: contain;
+  margin: 0 auto;
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 1s ease;
+}
+
+.slide-image.from-left { transform: translateX(-72px); }
+.slide-image.from-right { transform: translateX(72px); }
+.slide-image.in-view { transform: translateX(0); opacity: 1; }
+
+@media (max-width: 760px) {
+  .image-slide { min-height: auto; padding-block: 0; }
+  .slide-image { max-height: none; }
+}
+
+/* =========================================================
+   Robot mascot — one small transparent canvas that robot.js moves
+   around the page. Above the clouds, below the nav, never blocks clicks.
+   ========================================================= */
+#robotCanvas {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 6;
+  pointer-events: none;
+  visibility: hidden;        /* robot.js shows it once the robot is ready */
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #robotCanvas { display: none; }
+}
+
+/* =========================================================
+   Years page — choose between the 2025 and 2026 batches
+   ========================================================= */
+.hero-logo--compact {
+  width: min(300px, 60vw);
+  margin-top: 0;
+  margin-bottom: 18px;
+}
+
+.years-inner { padding-block: 110px 32vh; }   /* bottom space keeps the cards above the clouds */
+
+.years-title {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  color: var(--navy-700);
+  margin: 0 0 0.25em;
+}
+.years-sub { color: var(--mist); font-size: 1.1rem; margin: 0 0 30px; }
+
+.year-cards {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+}
+
+.year-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 230px;
+  padding: 22px 36px 20px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: var(--navy-700);
+  background: rgba(248, 247, 244, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(38, 43, 134, 0.14);
+  box-shadow: 0 18px 40px -22px rgba(27, 33, 88, 0.35);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.year-card:hover,
+.year-card:focus-visible {
+  transform: translateY(-6px);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 1px var(--gold-400), 0 26px 46px -18px rgba(242, 183, 5, 0.6);
+}
+.year-card:focus-visible { outline: 3px solid var(--navy-700); outline-offset: 4px; border-radius: 20px; }
+
+.year-card-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.year-card-year {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 3.2rem;
+  line-height: 1.1;
+  margin: 4px 0 14px;
+}
+.year-card-year::after {      /* gold underline, decoration only */
+  content: "";
+  position: absolute;
+  left: 12%; right: 12%; bottom: -4px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--gold-400);
+}
+.year-card-cta { font-weight: 700; font-size: 0.95rem; color: var(--navy-900); }
+
+@media (max-width: 700px) {
+  .years-inner { padding-block: 96px 20vh; }
+  .year-cards { flex-direction: column; align-items: stretch; width: min(320px, 100%); }
+  .year-card { min-width: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .year-card:hover, .year-card:focus-visible { transform: none; }
+}
+
+/* The cloud area on this page is shorter, so it stays inside the footer and never
+   makes the page scroll past it. The clouds are a little smaller as a result. */
+.page-years #cloudCanvas,
+.page-sectors #cloudCanvas { top: -50vh; height: min(70vh, calc(50vh + 280px)); }
+@media (max-width: 760px) {
+  .page-years #cloudCanvas,
+  .page-sectors #cloudCanvas { top: -42vh; height: min(58vh, calc(42vh + 300px)); }
+}
+
+/* =========================================================
+   Entries pages — the sector tiles and the category pages
+   ========================================================= */
+[hidden] { display: none !important; }
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin: 0 0 0.4em;
+}
+
+.back-link {
+  display: inline-block;
+  padding: 6px 2px;
+  color: var(--navy-700);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+}
+.back-link:hover { border-bottom-color: var(--gold-400); }
+
+.soon-msg,
+.page-msg {
+  max-width: 520px;
+  margin: 8px 0 20px;
+  padding: 18px 24px;
+  font-size: 1.1rem;
+  color: var(--mist);
+  background: rgba(248, 247, 244, 0.85);
+  border: 1px solid rgba(38, 43, 134, 0.14);
+  border-radius: 16px;
+}
+
+/* --- Sector tiles (sectors.html) --- */
+.entries-inner { padding-block: 110px 32vh; }   /* bottom space keeps the tiles above the clouds */
+
+.sector-grid {
+  list-style: none;
+  margin: 18px 0 14px;
+  padding: 0;
+  width: min(1000px, 100%, 118vh);
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.sector-tile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1 / 1;
+  padding: 12px 12px 26px;
+  border-radius: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(0.78rem, 1.15vw, 1rem);
+  line-height: 1.2;
+  color: var(--navy-700);
+  background: linear-gradient(160deg, rgba(248, 247, 244, 0.95), rgba(142, 152, 227, 0.2));
+  border: 1px solid rgba(38, 43, 134, 0.14);
+  box-shadow: 0 16px 34px -22px rgba(27, 33, 88, 0.4);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, filter 0.25s ease;
+}
+.sector-tile::after {            /* gold bar, decoration only */
+  content: "";
+  position: absolute;
+  left: 28%; right: 28%; bottom: 14px;
+  height: 4px;
+  border-radius: 4px;
+  background: var(--gold-400);
+}
+.sector-tile:hover,
+.sector-tile:focus-visible {
+  transform: translateY(-6px);
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 1px var(--gold-400), 0 22px 40px -18px rgba(242, 183, 5, 0.6);
+}
+.sector-tile:focus-visible { outline: 3px solid var(--navy-700); outline-offset: 4px; }
+
+/* When your picture for a sector exists in images/sectors/, it replaces the text tile */
+.sector-tile-art {
+  display: none;
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.sector-tile.has-art {
+  padding: 0;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.sector-tile.has-art::after { display: none; }
+.sector-tile.has-art .sector-tile-art { display: block; }
+.sector-tile.has-art .sector-tile-name {   /* still read aloud, just not shown */
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.sector-tile.has-art:hover,
+.sector-tile.has-art:focus-visible {
+  box-shadow: none;
+  filter: drop-shadow(0 14px 22px rgba(242, 183, 5, 0.55));
+}
+
+@media (max-width: 999px) {
+  .sector-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 639px) {
+  .entries-inner { padding-block: 96px 20vh; }
+  .sector-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+  .sector-tile { padding: 8px 8px 20px; border-radius: 16px; font-size: 0.78rem; }
+  .sector-tile::after { left: 30%; right: 30%; bottom: 10px; height: 3px; }
+}
+@media (max-width: 359px) {
+  .sector-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* --- Category page (sector.html) --- */
+.entries-head {
+  padding: 130px 0 18px;
+  background:
+    radial-gradient(ellipse 70% 80% at 50% 0%, rgba(142, 152, 227, 0.16), transparent 62%),
+    radial-gradient(ellipse 50% 60% at 90% 10%, rgba(242, 183, 5, 0.1), transparent 55%);
+}
+.sector-title {
+  font-size: clamp(2rem, 4.4vw, 3rem);
+  color: var(--navy-700);
+  margin: 0 0 18px;
+}
+
+.entry-search input {
+  width: min(560px, 100%);
+  padding: 14px 18px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(38, 43, 134, 0.28);
+  border-radius: 14px;
+}
+.entry-search input:focus-visible {
+  outline: 3px solid var(--navy-700);
+  outline-offset: 2px;
+  border-color: var(--navy-700);
+}
+
+.sector-chips { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 8px; }
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--navy-700);
+  background: rgba(248, 247, 244, 0.85);
+  border: 1px solid rgba(38, 43, 134, 0.22);
+  border-radius: 999px;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+.chip:hover { border-color: var(--gold-400); background: #fff; }
+.chip[aria-current="page"] { color: var(--paper); background: var(--navy-700); border-color: var(--navy-700); }
+
+.result-count { min-height: 1.4em; margin: 6px 0 0; font-size: 0.95rem; color: var(--mist); }
+
+.entries-body { padding: 18px 0 90px; }
+.entry-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
+  align-items: start;            /* an expanded card grows on its own; the others keep their height */
+  /* how many lines of text show before "Read more" (change the numbers) */
+  --clamp-title: 3;
+  --clamp-school: 2;
+  --clamp-desc: 5;
+}
+.entry-card { display: flex; }
+.entry-card-inner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 20px;
+  background: rgba(248, 247, 244, 0.92);
+  border: 1px solid rgba(38, 43, 134, 0.12);
+  box-shadow: 0 18px 38px -24px rgba(27, 33, 88, 0.38);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.entry-card-inner:hover { transform: translateY(-4px); box-shadow: 0 24px 44px -22px rgba(27, 33, 88, 0.45); }
+.entry-card-inner.is-expanded { border-color: var(--gold-400); box-shadow: 0 0 0 1px var(--gold-400), 0 24px 44px -22px rgba(27, 33, 88, 0.45); }
+
+.entry-media { position: relative; aspect-ratio: 16 / 9; background: var(--navy-900); }
+.entry-play, .entry-frame { position: absolute; inset: 0; width: 100%; height: 100%; padding: 0; border: 0; }
+.entry-play { display: block; overflow: hidden; cursor: pointer; background: var(--navy-900); }
+.entry-play img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 0.35s ease; }
+.entry-play:hover img { transform: scale(1.04); }
+.entry-play-icon {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: 64px; height: 64px;
+  margin: -32px 0 0 -32px;
+  border-radius: 50%;
+  background: var(--gold-400);
+  box-shadow: 0 0 0 6px rgba(242, 183, 5, 0.35), 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+.entry-play-icon::before {       /* play triangle */
+  content: "";
+  position: absolute;
+  left: 26px; top: 19px;
+  border-style: solid;
+  border-width: 13px 0 13px 20px;
+  border-color: transparent transparent transparent var(--navy-900);
+}
+.entry-play:focus-visible { outline: 3px solid var(--gold-400); outline-offset: -6px; }
+
+.entry-body { display: flex; flex-direction: column; flex: 1; padding: 20px 22px 22px; }
+.entry-title { margin: 0 0 0.35em; font-size: 1.1rem; line-height: 1.3; color: var(--navy-700); }
+.entry-school {
+  margin: 0 0 0.8em;
+  padding-left: 12px;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--navy-600);
+  border-left: 3px solid var(--gold-400);
+}
+.entry-desc { margin: 0 0 1em; font-size: 0.95rem; line-height: 1.6; color: var(--ink); }
+.entry-desc-full p { margin: 0 0 0.8em; }
+.entry-desc-full p:last-child { margin-bottom: 0; }
+
+/* Collapsed: the text is cut off after a few lines. Expanded: all of it shows. */
+.entry-title, .entry-school, .entry-desc-short {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.entry-title { -webkit-line-clamp: var(--clamp-title, 3); line-clamp: var(--clamp-title, 3); }
+.entry-school { -webkit-line-clamp: var(--clamp-school, 2); line-clamp: var(--clamp-school, 2); }
+.entry-desc-short { -webkit-line-clamp: var(--clamp-desc, 5); line-clamp: var(--clamp-desc, 5); }
+.is-expanded .entry-title, .is-expanded .entry-school { display: block; overflow: visible; }
+
+.entry-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  margin-top: auto;              /* keeps the buttons at the bottom of the card */
+  padding-top: 4px;
+}
+.entry-more {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 0;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--navy-700);
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.entry-more::after {             /* little arrow */
+  content: "";
+  width: 7px; height: 7px;
+  margin: -3px 0 0 9px;
+  border: solid currentColor;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: transform 0.2s ease;
+}
+.entry-more[aria-expanded="true"]::after { margin-top: 3px; transform: rotate(-135deg); }
+.entry-more:hover { color: var(--navy-900); }
+.entry-more:focus-visible { outline: 3px solid var(--navy-700); outline-offset: 3px; border-radius: 6px; }
+
+/* Shown instead of the video while an entry has no real YouTube code yet */
+.entry-media-soon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(150deg, var(--navy-900), var(--navy-700));
+}
+.entry-media-soon-text {
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--paper);
+  border: 1px solid rgba(242, 183, 5, 0.6);
+  border-radius: 999px;
+}
+
+.entry-yt {
+  margin-left: auto;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--navy-700);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.entry-yt:hover { color: var(--navy-900); }
+
+.no-match { margin: 24px 0; font-size: 1.05rem; color: var(--mist); }
+
+@media (max-width: 1000px) { .entry-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 760px) {
+  .entries-head { padding-top: 110px; }
+  .sector-chips {                /* one swipeable row instead of many wrapped lines */
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    margin-inline: -24px;
+    padding: 0 24px 8px;
+  }
+}
+@media (max-width: 640px) {
+  .entry-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sector-tile:hover, .sector-tile:focus-visible,
+  .entry-card-inner:hover, .entry-play:hover img { transform: none; }
+}
+
+/* --- Footer social icons --- */
+.footer-social { display: flex; gap: 12px; margin: 16px 0 0; padding: 0; list-style: none; }
+.site-footer .footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px; height: 42px;
+  font-size: 1.15rem;
+  color: var(--paper);
+  text-decoration: none;
+  border: 1px solid rgba(248, 247, 244, 0.3);
+  border-radius: 50%;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+.site-footer .footer-social a:hover { color: var(--navy-900); background: var(--gold-400); border-color: var(--gold-400); }
+.site-footer a:focus-visible { outline: 3px solid var(--gold-400); outline-offset: 3px; }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer { background: var(--navy-900); color: var(--paper); }
+.footer-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding-block: 56px;
+  border-bottom: 1px solid rgba(248, 247, 244, 0.12);
+}
+.footer-brand .brand-text { color: var(--paper); }
+.footer-brand .brand-text strong { color: var(--gold-400); }
+.footer-brand p { color: rgba(248, 247, 244, 0.7); margin-top: 0.5em; }
+.footer-contact p { margin: 0 0 0.4em; color: rgba(248, 247, 244, 0.85); }
+.footer-contact a { text-decoration: underline; }
+.footer-bottom { padding-block: 20px; font-size: 0.85rem; color: rgba(248, 247, 244, 0.55); }
+
+@media (max-width: 600px) { .footer-inner { grid-template-columns: 1fr; } }
+
+
+/* =========================================================
+   Chat widget (chat-widget.js)
+   Layers: robot 6 · its click area and the round button 7 · chat panel 9 · top menu 50
+   ========================================================= */
+.chat-robot-hit {
+  position: fixed; left: 0; top: 0; z-index: 7;
+  margin: 0; padding: 0; border: 0; border-radius: 28px;
+  background: transparent; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+.chat-launcher {
+  position: fixed; right: 20px; bottom: 20px; z-index: 7;
+  display: grid; place-items: center;
+  width: 58px; height: 58px; padding: 0; border: 0; border-radius: 50%;
+  background: var(--gold-400); color: var(--navy-900); cursor: pointer;
+  box-shadow: 0 14px 28px -10px rgba(27, 33, 88, 0.55), 0 0 0 4px rgba(242, 183, 5, 0.25);
+  transition: transform 0.15s ease;
+}
+.chat-launcher:hover { transform: translateY(-2px) scale(1.04); }
+
+.chat-robot-hit:focus-visible,
+.chat-launcher:focus-visible,
+.chat-send:focus-visible,
+.chat-starter:focus-visible,
+.chat-input:focus-visible { outline: 3px solid var(--navy-700); outline-offset: 2px; box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.85); }
+.chat-head-btn:focus-visible { outline: 3px solid var(--gold-400); outline-offset: 2px; }
+
+.chat-panel {
+  position: fixed; right: 24px; bottom: 24px; z-index: 9;
+  display: flex; flex-direction: column;
+  width: min(390px, calc(100vw - 32px));
+  height: min(580px, calc(100vh - 160px));
+  height: min(580px, calc(100dvh - 160px));
+  overflow: hidden;
+  background: var(--paper); color: var(--ink);
+  border: 1px solid rgba(38, 43, 134, 0.18); border-radius: 22px;
+  box-shadow: 0 30px 60px -24px rgba(27, 33, 88, 0.6);
+  font-family: var(--font-body);
+  animation: chat-in 0.18s ease-out;
+}
+@keyframes chat-in { from { opacity: 0; } to { opacity: 1; } }
+
+.chat-head {
+  display: flex; align-items: center; gap: 8px;
+  padding: 12px 12px 12px 18px;
+  background: var(--navy-700); color: var(--paper);
+}
+.chat-title { flex: 1; margin: 0; font-family: var(--font-display); font-size: 1rem; font-weight: 800; letter-spacing: 0.01em; }
+.chat-head-btn {
+  min-height: 36px; padding: 6px 12px;
+  font: inherit; font-size: 0.85rem; color: var(--paper);
+  background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 999px;
+  cursor: pointer;
+}
+.chat-head-btn:hover { background: rgba(255, 255, 255, 0.24); }
+.chat-close { width: 36px; padding: 0; font-size: 1.4rem; line-height: 1; }
+
+.chat-log {
+  flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  display: flex; flex-direction: column; gap: 10px; padding: 16px;
+}
+.chat-msg { display: flex; }
+.chat-msg-user { justify-content: flex-end; }
+.chat-bubble { max-width: 88%; padding: 10px 14px; border-radius: 18px; font-size: 0.95rem; line-height: 1.5; overflow-wrap: anywhere; }
+.chat-msg-bot .chat-bubble { background: #fff; border: 1px solid rgba(38, 43, 134, 0.14); border-bottom-left-radius: 6px; }
+.chat-msg-user .chat-bubble { background: var(--navy-700); color: var(--paper); border-bottom-right-radius: 6px; }
+.chat-msg-error .chat-bubble { background: #fdecea; border: 1px solid #e8b4ae; color: #7a1d12; border-bottom-left-radius: 6px; }
+.chat-bubble p { margin: 0 0 0.6em; }
+.chat-bubble p:last-child, .chat-bubble .chat-list:last-child { margin-bottom: 0; }
+.chat-list { margin: 0 0 0.6em; padding-left: 1.2em; }
+.chat-bubble a { color: var(--navy-700); text-decoration: underline; text-underline-offset: 2px; }
+.chat-msg-user .chat-bubble a { color: var(--gold-300); }
+
+.chat-typing .chat-bubble { display: inline-flex; align-items: center; gap: 5px; padding: 14px 16px; }
+.chat-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--navy-700); opacity: 0.35; animation: chat-dot 1s infinite ease-in-out; }
+.chat-dot + .chat-dot { animation-delay: 0.15s; }
+.chat-dot + .chat-dot + .chat-dot { animation-delay: 0.3s; }
+@keyframes chat-dot { 0%, 80%, 100% { opacity: 0.3; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-3px); } }
+
+.chat-starters { display: flex; flex-wrap: wrap; gap: 8px; padding: 0 16px 12px; }
+.chat-starter {
+  min-height: 40px; padding: 8px 14px; text-align: left;
+  font: inherit; font-size: 0.85rem; color: var(--navy-700);
+  background: #fff; border: 1.5px solid var(--navy-700); border-radius: 999px; cursor: pointer;
+}
+.chat-starter:hover { background: var(--navy-700); color: var(--paper); }
+
+.chat-form { display: flex; align-items: flex-end; gap: 8px; padding: 10px 12px; background: #fff; border-top: 1px solid rgba(38, 43, 134, 0.14); }
+.chat-input {
+  flex: 1; min-height: 44px; max-height: 110px; padding: 10px 12px; resize: none;
+  font: inherit; font-size: 1rem; line-height: 1.4; color: var(--ink);
+  background: var(--paper); border: 1.5px solid rgba(38, 43, 134, 0.35); border-radius: 14px;
+}
+.chat-send {
+  flex: none; display: grid; place-items: center;
+  width: 44px; height: 44px; padding: 0; border: 0; border-radius: 50%;
+  background: var(--gold-400); color: var(--navy-900); cursor: pointer;
+}
+.chat-send:disabled { opacity: 0.5; cursor: progress; }
+.chat-notice { margin: 0; padding: 0 14px 10px; background: #fff; font-size: 0.75rem; line-height: 1.35; color: var(--mist); }
+
+/* Phones: the panel becomes a sheet along the bottom, with the robot sitting on its top edge */
+@media (max-width: 640px) {
+  .chat-panel {
+    left: 0; right: 0; bottom: 0; width: auto;
+    height: min(78vh, 560px); height: min(78dvh, 560px);
+    border-radius: 22px 22px 0 0; border-bottom: 0;
+  }
+  .chat-launcher { right: 14px; bottom: 14px; }
+}
+/* The speech bubble that pops in and out beside the robot (frosted glass).
+   The glass stays at least 60% white, so the dark navy text reads clearly over any background. */
+.chat-hint {
+  position: fixed; left: 0; top: 0; z-index: 8;
+  max-width: min(240px, calc(100vw - 24px));
+  cursor: pointer;
+}
+.chat-hint-body {
+  position: relative;
+  padding: 11px 16px;
+  border-radius: 18px;
+  color: var(--navy-900);
+  font-family: var(--font-body); font-size: 0.95rem; font-weight: 500; line-height: 1.35;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.6));
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  backdrop-filter: blur(14px) saturate(170%);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95),
+    0 0 0 1px rgba(38, 43, 134, 0.08),
+    0 12px 32px -10px rgba(27, 33, 88, 0.4);
+  transform-origin: 100% 50%;
+  animation: chat-hint-in 0.38s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+.chat-hint.is-right .chat-hint-body { transform-origin: 0 50%; }
+.chat-hint.is-leaving .chat-hint-body { animation: chat-hint-out 0.3s ease-in both; }
+
+/* the tail, pointing at the robot, made of the same glass */
+.chat-hint-body::after {
+  content: ""; position: absolute; top: 50%; right: -10px;
+  width: 12px; height: 22px; margin-top: -11px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+  -webkit-backdrop-filter: blur(14px) saturate(170%);
+  backdrop-filter: blur(14px) saturate(170%);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+.chat-hint.is-right .chat-hint-body::after { right: auto; left: -10px; clip-path: polygon(100% 0, 0 50%, 100% 100%); }
+
+/* the little x that hides the bubble (the keyboard equivalent is the Esc key) */
+.chat-hint-x {
+  position: absolute; top: -8px; left: -8px;
+  display: grid; place-items: center;
+  width: 22px; height: 22px; border-radius: 50%;
+  color: var(--navy-900); font-size: 15px; line-height: 1;
+  background: rgba(255, 255, 255, 0.88);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 8px -2px rgba(27, 33, 88, 0.45), inset 0 0 0 1px rgba(255, 255, 255, 0.9);
+  animation: chat-hint-in 0.38s 0.08s cubic-bezier(0.2, 1.4, 0.4, 1) both;
+}
+.chat-hint-x::before { content: "\00D7"; }
+.chat-hint-x:hover { background: #fff; }
+.chat-hint.is-right .chat-hint-x { left: auto; right: -8px; }
+.chat-hint.is-leaving .chat-hint-x { animation: chat-hint-out 0.3s ease-in both; }
+
+@keyframes chat-hint-in  { from { opacity: 0; transform: scale(0.55); } to { opacity: 1; transform: scale(1); } }
+@keyframes chat-hint-out { from { opacity: 1; transform: scale(1); }    to { opacity: 0; transform: scale(0.55); } }
+
+/* browsers without backdrop blur: a nearly solid white bubble instead */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .chat-hint-body, .chat-hint-body::after, .chat-hint-x { background: rgba(255, 255, 255, 0.96); }
+}
+@media (max-width: 640px) {
+  .chat-hint { max-width: 200px; }
+  .chat-hint-body { padding: 9px 13px; font-size: 0.84rem; }
+}
+@media print { .chat-robot-hit, .chat-launcher, .chat-panel, .chat-hint { display: none !important; } }
+
+
+/* An entry opened from a link (for example the chat assistant's "Read more here") */
+.entry-card { scroll-margin-top: 120px; }   /* keeps it clear of the floating menu when scrolled to */
+.entry-card.is-target .entry-card-inner {
+  outline: 3px solid var(--gold-400); outline-offset: 4px;
+  box-shadow: 0 0 0 10px rgba(242, 183, 5, 0.22);
+}

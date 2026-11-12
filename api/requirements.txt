@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+gunicorn
+python-dotenv
+requests
+openpyxl
+redis
+langchain-core
+langchain-google-genai
+# Only if you want to keep using Upstash instead of Azure/other Redis:
+# upstash-redis

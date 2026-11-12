@@ -1,141 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NextGenPH — Innovation Contest | Development Academy of the Philippines</title>
+<meta name="description" content="NextGenPH is DAP's open, participatory innovation contest inviting Filipino senior high school and college students to pitch ideas that reimagine public service.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <title>NextGenPh</title>
-  </head>
-  <body>
-  <section id="Header-Section" class="Header-Section">
-    <nav class="navbar navbar-expand-lg bg-transparent navbar-light">
-      <div class="container-fluid">
+<a class="skip-link" href="#main">Skip to main content</a>
 
-        <a class="navbar-brand" href="index.html">
-          <img src="./images/Variant 2_DAP Logo - Horizontal on A4 (3).png" alt="Logo" class="d-inline-block align-text-top">
-        </a>
+<header class="site-header">
+  <div class="nav-float">
+    <a class="brand" href="#top" aria-label="NextGenPH home">
+      <img class="brand-logo" src="images/logo-mark.png" alt="NextGenPH">
+    </a>
 
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav">
+      <span class="nav-toggle-bar" aria-hidden="true"></span>
+      <span class="visually-hidden">Menu</span>
+    </button>
 
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-            <!-- <li class="nav-item"><a class="nav-link" href="About.html">About NextGenPh</a></li> -->
-            <li class="nav-item"><a class="nav-link" href="Entries.html">Entries</a></li>
-            <li class="nav-item"><a class="nav-link" href="https://sites.google.com/dap.edu.ph/nextgenph/home">Join Now</a></li>
-          </ul>
-        </div>
-      </div>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <ul>
+        <li><a href="#top">HOME</a></li>
+        <li><a href="years.html">ENTRIES</a></li>
+        <li><a class="nav-cta" href="https://sites.google.com/dap.edu.ph/nextgenph/home">JOIN NOW</a></li>
+      </ul>
     </nav>
+  </div>
+</header>
 
-  <!-- Banner card -->
-<div class="card banner-card bg-transparent border-0">
-  <img src="./images/Bottom_CLoud V1.png" class="card-img" alt="Hero Banner">
+<main id="main">
 
-  <div class="card-img-overlay d-flex flex-column align-items-center justify-content-center">
+  <!-- HERO — logo lockup + intro copy -->
+  <section class="hero" id="top" aria-labelledby="hero-heading">
+    <div class="hero-glow" id="heroGlow" aria-hidden="true"></div>
 
-    <div class="text-center logo-hover-wrapper">
-      <img src="./images/Logo.png" alt="Microsite Logo" class="logo-img">
+    <!-- Launch rocket with a gold exhaust trail. Drawn by script.js;
+         sits behind the logo/text and behind the clouds. -->
+    <canvas class="launch-canvas" id="launchCanvas" aria-hidden="true"></canvas>
 
-      <div class="logo-desc-collapse">
-        <div class="logo-desc-box rounded-3">
-          <p class=" small">
-            NextGenPH is an open and participatory innovation contest that invites youth to design and pitch
-            practical solutions to improve public services. The initiative aims to foster faster, more platform that
-            values creativity, collaboration, and public impact. Innovate Ideas submitted should be grounded in
-            personal experience or informed by the experiences of others in availing public services.
-          </p>
-        </div>
-      </div>
-
-      <!-- Button moved inside the flow wrapper -->
-      <a href="Entries.html">
-        <button class="btn Banner-btn mt-3">View Ideas Here</button>
+    <div class="shell hero-inner">
+      <img class="hero-logo" src="images/logo-full.png" alt="NextGenPH — Youth Innovators Reimagining Public Service">
+      <h1 id="hero-heading" class="visually-hidden">NextGenPH — Youth Innovators Reimagining Public Service</h1>
+      <p class="hero-lede">
+        NextGenPH is an open and participatory innovation contest that invites youth to
+        design and pitch practical solutions to improve public services. The initiative
+        aims to foster faster, more responsive public service delivery — a platform that
+        values creativity, collaboration, and public impact. Ideas submitted should be
+        grounded in personal experience or informed by the experiences of others in
+        availing public services.
+      </p>
+        <a class="hero-join" href="https://sites.google.com/dap.edu.ph/nextgenph/home">
+        <span class="hero-join-glow" aria-hidden="true"></span>
+        <span class="hero-join-core">JOIN NOW</span>
       </a>
     </div>
+  </section>
 
+  <!-- 3D cloud layer — straddles the hero/About boundary. The two
+       halves drift apart as the page scrolls and are fully gone by the
+       time 10% of the About section is on screen. -->
+  <div class="cloud-stage" aria-hidden="true">
+    <canvas id="cloudCanvas"></canvas>
   </div>
-</div>
-</section>
 
+  <!-- SECTION 1 — About NextGenPH (full-bleed, 100vh) -->
+  <section class="image-slide" id="about-section" aria-labelledby="about-heading">
+    <img
+      class="slide-image from-left"
+      src="images/about-nextgenph.jpg"
+      alt="About NextGenPH: an illustration of three students researching, analyzing data, and presenting ideas around a glowing lightbulb, next to introductory text about the contest."
+    >
+    <div class="visually-hidden">
+      <h2 id="about-heading">About NextGenPH</h2>
+      <p>The Development Academy of the Philippines, Center of Excellence on Public-Sector Productivity (DAP COE-PSP) recognizes innovation's crucial role in improving public services and productivity.</p>
+      <p>NextGenPH is an open and participatory innovation contest that invites youth to share their collective ideas and visions for how government services should be experienced by the public. This initiative seeks to capture a wide range of perspectives to inspire more citizen-centered, accessible, and effective public service delivery.</p>
+      <p>This contest features two categories and is open to both Senior High School and College students.</p>
+    </div>
+  </section>
 
-    <section id="Second-Section" class="Second-Section">
-        <div class="card bg-transparent border-0  ">
-        <img src="./images/10Years.png" class="card-img mt-5" alt="...">
-        </div>
-    </section>
+  <!-- SECTION 2 — Innovation Question (full-bleed, 100vh) -->
+  <section class="image-slide" id="innovation-question" aria-labelledby="iq-heading">
+    <img
+      class="slide-image from-right"
+      src="images/innovation-question.jpg"
+      alt="NextGenPH, Batch 2026, Youth Innovators Reimagining Public Service. Innovation Question, shown as bold text next to an illustration of a hand holding a glowing lightbulb."
+    >
+    <div class="visually-hidden">
+      <h2 id="iq-heading">Innovation Question — Batch 2026</h2>
+      <p>NextGenPH: Youth Innovators Reimagining Public Service.</p>
+      <p>"How might the government deliver essential services and improve its effectiveness amidst the national energy emergency situation?"</p>
+    </div>
+  </section>
 
-    <section id="Third-Section" class="Third-Section">
-        <div class="card bg-transparent border-0">
-        <img src="./images/RealTalk.png" class="card-img mt-5" alt="...">
-        </div>
-        <div class="card bg-transparent border-0">
-          <img src="./images/Grievance.png" class="card-img mt-5" alt="...">
-        </div>
-    </section>
+</main>
 
-    <section id="Fourth-Section" class="Fourth-Section">
-      <div class="card bg-transparent border-0">
-        <img src="./images/Youth_Taking_ActionV2.png" class="card-img mt-5" alt="...">
-        <a href="Entries.html"><button class="btn Youth_Taking_Action-btn">View Ideas Here</button></a>
-      </div>
-      <div class="card bg-transparent border-0">
-        <img src="./images/Focus_Area.png" class="card-img mt-5" alt="...">
-      </div>
-    </section>
-
-
-<section id="Footer-Section" class="Footer-Section">
-  <div class="card bg-transparent border-0">
-    <footer class="footer m-auto py-3">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 mb-3">
-            
-            <div class="row gy-2">
-              <div class="col-md-4">
-                <img src="./images/development-academy-of-the-philippines.jpg" class="img-fluid rounded-start" alt="...">
-              </div>
-              <div class="col-md-8">
-                <div class="body">
-                  <a href="https://dap.edu.ph"><img src="./images/condensed vertical.png" class="img-fluid rounded-start" alt="..."></a>
-                  <p class="card-text">NextGenPh</p>
-                  <a href="https://gmail.com" class="text-decoration-none">
-                    <p class="card-text"><small class="text-muted">capdev.coepsp@dap.edu.ph</small></p>
-                  </a>
-                  <p class="card-text"><small class="text-muted">Center of Excellence on Public Sector Productivity</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-              <div class="social-icons mx-auto">
-                <a href="https://www.facebook.com/dap.edu.ph" class="me-5 text-reset"><i class="bi bi-facebook large-icon"></i></a>
-                <a href="https://www.linkedin.com/school/development-academy-philippines-dap/" class="me-5 text-reset"><i class="bi bi-linkedin large-icon"></i></a>
-                <a href="https://x.com/dap_edu_ph" class="me-5 text-reset"><i class="bi bi-twitter-x large-icon"></i></a>
-                <a href="https://www.youtube.com/@dap-edu-ph" class="me-5 text-reset"><i class="bi bi-youtube large-icon"></i></a>
-              </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <div class="footer-brand">
+      <span class="brand-text">NextGen<strong>PH</strong></span>
+      <p>An innovation contest by the Development Academy of the Philippines.</p>
+    </div>
+    <div class="footer-contact">
+      <p>DAP Building, San Miguel Avenue, Ortigas Center, Pasig City</p>
+      <p><a href="mailto:capdev.coepsp@dap.edu.ph">capdev.coepsp@dap.edu.ph</a></p>
+      <p>(02) 8631-0921 to 30, local 152</p>
+      <ul class="footer-social" aria-label="DAP on social media">
+        <li><a href="https://www.facebook.com/dap.edu.ph" target="_blank" rel="noopener noreferrer" aria-label="DAP on Facebook (opens in a new tab)"><i class="bi bi-facebook" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.linkedin.com/school/development-academy-philippines-dap/" target="_blank" rel="noopener noreferrer" aria-label="DAP on LinkedIn (opens in a new tab)"><i class="bi bi-linkedin" aria-hidden="true"></i></a></li>
+        <li><a href="https://x.com/dap_edu_ph" target="_blank" rel="noopener noreferrer" aria-label="DAP on X (opens in a new tab)"><i class="bi bi-twitter-x" aria-hidden="true"></i></a></li>
+        <li><a href="https://www.youtube.com/@dap-edu-ph" target="_blank" rel="noopener noreferrer" aria-label="DAP on YouTube (opens in a new tab)"><i class="bi bi-youtube" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
   </div>
-</section>
+  <div class="shell footer-bottom">
+    <p>© 2026 Development Academy of the Philippines. Built to align with DICT's Government Web Hosting Service accessibility standards.</p>
+  </div>
+</footer>
 
-     <!-- Option 1: Bootstrap Bundle with Popper -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+<!-- Robot mascot: drawn on its own small canvas that follows the page as you scroll -->
+<canvas id="robotCanvas" aria-hidden="true"></canvas>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<script src="script.js"></script>
+<script src="robot-model.js"></script>
+<script src="robot.js"></script>
+<script src="chat-widget.js"></script>
+</body>
 </html>
