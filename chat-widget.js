@@ -12,7 +12,7 @@
   var CHAT_CONFIG = {
     // Address of your chat server (the /api/chat address).
     // For testing on your own computer, run the server and keep this:
-    apiUrl: "https://nextgenph-api.dap.edu.ph/api/chat",
+    apiUrl: "https://nextgenph.dap.edu.ph/api/chat",
 
     title: "NextGenPH Assistant",
     welcome: "Hi! I can answer questions about NextGenPH: the contest, the sectors, and the 2025 and 2026 entries.",
