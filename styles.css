@@ -511,10 +511,14 @@ button:focus-visible {
 
 /* The cloud area on this page is shorter, so it stays inside the footer and never
    makes the page scroll past it. The clouds are a little smaller as a result. */
+.page-home #cloudCanvas,
 .page-years #cloudCanvas,
+.page-batch #cloudCanvas,
 .page-sectors #cloudCanvas { top: -50vh; height: min(70vh, calc(50vh + 280px)); }
 @media (max-width: 760px) {
+  .page-home #cloudCanvas,
   .page-years #cloudCanvas,
+  .page-batch #cloudCanvas,
   .page-sectors #cloudCanvas { top: -42vh; height: min(58vh, calc(42vh + 300px)); }
 }
 
@@ -529,15 +533,6 @@ button:focus-visible {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--mist);
-  margin: 0 0 0.4em;
-}
-
-.innoQuestion {
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: #1c2790;
   margin: 0 0 0.4em;
 }
 
@@ -1087,4 +1082,92 @@ button:focus-visible {
 .entry-card.is-target .entry-card-inner {
   outline: 3px solid var(--gold-400); outline-offset: 4px;
   box-shadow: 0 0 0 10px rgba(242, 183, 5, 0.22);
+}
+
+/* =========================================================
+   Batch stamps (home page) and the batch pages
+   ========================================================= */
+.batch-stamps {
+  list-style: none;
+  margin: 4px 0 30px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(8px, 3vw, 36px);
+}
+
+.batch-stamp {
+  display: block;
+  width: min(430px, 44vw);
+  border-radius: 14px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+}
+.batch-stamp img { display: block; width: 100%; height: auto; }
+.batch-stamp:hover,
+.batch-stamp:focus-visible {
+  transform: translateY(-6px) rotate(-1.5deg) scale(1.04);
+  filter: drop-shadow(0 14px 18px rgba(38, 43, 134, 0.28));
+}
+.batch-stamp:focus-visible { outline: 3px solid var(--navy-700); outline-offset: 6px; }
+
+@media (max-width: 640px) {
+  .batch-stamps { flex-direction: column; gap: 4px; }
+  .batch-stamp { width: min(340px, 84vw); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .batch-stamp { transition: none; }
+  .batch-stamp:hover, .batch-stamp:focus-visible { transform: none; }
+}
+
+/* Batch page: the innovation question first, then the sectors */
+.page-batch .iq-slide { padding-top: 96px; }
+.page-batch .iq-slide .slide-image { max-height: calc(100vh - 120px); }
+.page-batch .iq-soon {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background: var(--paper);
+}
+.page-batch .iq-soon .shell { text-align: center; }
+.page-batch .iq-soon .soon-msg { margin-inline: auto; }
+.hero--sectors { scroll-margin-top: 0; }
+@media (max-width: 760px) {
+  .page-batch .iq-slide { padding-top: 84px; }
+  .page-batch .iq-slide .slide-image { max-height: none; }
+}
+
+.sector-grid.is-single { display: flex; justify-content: center; }
+.sector-grid.is-single > li { width: min(200px, 60vw); }
+
+/* Batch page with one sector: its entries follow the innovation question */
+.page-batch .entries-head { padding-top: 64px; text-align: center; }
+.page-batch .entries-head .entry-search { margin-inline: auto; }
+.page-batch .entries-head .sector-chips { justify-content: center; }
+.sector-logo { display: block; margin: 0 auto 12px; max-width: min(220px, 60vw); max-height: 220px; width: auto; height: auto; }
+.page-batch .entries-body .back-link { display: block; width: fit-content; margin: 28px auto 0; }
+#entries { scroll-margin-top: 80px; }
+
+/* Sector tiles act as tabs: the chosen one is marked, and the tiles area shrinks to fit when entries show below */
+.sector-tile[aria-current="true"] {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(242, 183, 5, 0.55), 0 14px 28px rgba(38, 43, 134, 0.18);
+}
+.hero--sectors.is-open { min-height: 0; }
+.hero--sectors.is-open .entries-inner { padding-block: 100px 28px; }
+.hero--sectors.is-open .back-link { display: none; }   /* the entries area has its own link home */
+.page-batch .entries-head .sector-chips { margin-top: 14px; }
+
+/* Home page: logo, short intro, smaller batch stamps and the JOIN NOW button fit on one screen */
+.page-home .hero-inner { padding-block: 96px 16vh; }
+.page-home .hero-logo { width: min(440px, 72vw); margin: 30px 0 14px; }
+.page-home .hero-lede { max-width: 60ch; font-size: 1.05rem; line-height: 1.6; margin: 0 0 22px; }
+.page-home .batch-stamps { margin: 0 0 6px; gap: clamp(6px, 2vw, 24px); }
+.page-home .batch-stamp { width: min(290px, 40vw); }
+.page-home .hero-join { margin-top: 20px; }
+@media (max-width: 640px) {
+  .page-home .hero-inner { padding-block: 84px 14vh; }
+  .page-home .hero-logo { width: min(300px, 72vw); margin: 18px 0 10px; }
+  .page-home .hero-lede { font-size: 0.98rem; margin-bottom: 14px; }
+  .page-home .batch-stamp { width: min(250px, 70vw); }
 }

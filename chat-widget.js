@@ -112,6 +112,13 @@
   // the conversation is kept, and the visitor can reopen it with the robot.
   function onPageLinkClick(ev) {
     if (ev.defaultPrevented || ev.button > 0 || ev.metaKey || ev.ctrlKey || ev.shiftKey || ev.altKey) return;
+    // An entry of the batch page the visitor is already on: show it right there (no reload, no extra clicks)
+    var m = /^sector\.html\?year=(\d+)&entry=([a-z0-9-]+)$/.exec(ev.currentTarget ? ev.currentTarget.getAttribute("href") || "" : "");
+    var here = window.NextGenEntries;
+    if (m && here && String(here.year) === m[1]) {
+      closeChat();                      // first, so the focus moves to the entry afterwards
+      if (here.openEntry(m[2])) { ev.preventDefault(); return; }
+    }
     state.open = false;
     save();
   }
