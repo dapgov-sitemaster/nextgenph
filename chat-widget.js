@@ -10,9 +10,10 @@
   "use strict";
 
   var CHAT_CONFIG = {
-    // Address of your chat server (the /api/chat address).
-    // For testing on your own computer, run the server and keep this:
-    apiUrl: "https://nextgenph.dap.edu.ph/api/chat",
+    // Address of the chat API. On the live site it is the site's own /api/chat (Azure Static Web Apps).
+    // To test on your own computer, run  python local_server.py  in the api folder and use:
+    //   apiUrl: "http://127.0.0.1:8000/api/chat",
+    apiUrl: "/api/chat",
 
     title: "NextGenPH Assistant",
     welcome: "Hi! I can answer questions about NextGenPH: the contest, the sectors, and the 2025 and 2026 entries.",
@@ -35,7 +36,8 @@
     bubbleMaxPops: 6,          // pop-ins per page view, then it rests (0 = keep going). It stops for good in this
                                // browser tab once the chat has been opened, or the visitor hides it with the x or Esc.
 
-    timeoutSeconds: 45,        // give up waiting for an answer after this long
+    timeoutSeconds: 40,        // give up waiting for an answer after this long
+    historyMessages: 8,        // how many earlier messages are sent along with each question
     reactionSeconds: 2.2,      // how long the robot's thumbs-up / head shake lasts
     maxMessageLength: 2000,    // the server accepts up to 2000 characters
     storageKey: "nextgenph-chat-v1"
@@ -580,13 +582,22 @@
     setMood("think");
     save();
 
+    // the last few messages (before this question) go with it, so the assistant can follow the conversation
+    var history = state.messages.slice(0, -1).slice(-CFG.historyMessages).map(function (m) {
+      return { role: m.role === "user" ? "user" : "bot", text: String(m.text).slice(0, 1500) };
+    });
+
     var controller = (typeof AbortController !== "undefined") ? new AbortController() : null;
     var timer = setTimeout(function () { if (controller) controller.abort(); }, CFG.timeoutSeconds * 1000);
 
-    fetch(CFG.apiUrl, {
+    // on your own computer (Live Server etc.) the chat API is local_server.py on port 8000; on the live site it is /api/chat
+    var apiUrl = CFG.apiUrl;
+    if (apiUrl.charAt(0) === "/" && /^(localhost|127\.0\.0\.1)$/.test(window.location.hostname)) apiUrl = "http://127.0.0.1:8000" + apiUrl;
+
+    fetch(apiUrl, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: text, session_id: state.sid }),
+      body: JSON.stringify({ message: text, session_id: state.sid, history: history }),
       signal: controller ? controller.signal : undefined
     })
       .then(function (res) {
