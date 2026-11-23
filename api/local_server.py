@@ -51,7 +51,7 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         if self.path.split("?")[0] == "/api/health":
-            self._send(*core.handle_health())
+            self._send(*core.handle_health(deep="deep=1" in self.path))
         else:
             self._send(404, {"error": "not found"})
 

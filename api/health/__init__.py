@@ -1,7 +1,7 @@
 import os
 import sys
-import jsons
-import pandas
+import json
+
 
 import azure.functions as func
 

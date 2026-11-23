@@ -26,7 +26,6 @@ import logging
 import threading
 import unicodedata
 from io import BytesIO
-import pandas
 
 import requests
 from openpyxl import load_workbook
