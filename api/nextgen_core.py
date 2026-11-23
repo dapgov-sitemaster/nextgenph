@@ -26,6 +26,7 @@ import logging
 import threading
 import unicodedata
 from io import BytesIO
+import pandas
 
 import requests
 from openpyxl import load_workbook
@@ -442,8 +443,54 @@ def handle_chat(body, headers):
         return 500, {"error": "Something went wrong"}
 
 
-def handle_health():
-    """Safe to open in a browser: names missing settings, never shows a secret."""
+_probe_times = []
+_probe_lock = threading.Lock()
+
+
+def _gemini_hint(code):
+    return {
+        400: "bad request, or the key is not a valid Gemini key",
+        401: "the key was rejected",
+        403: "the key is restricted or not allowed to use this model / API",
+        404: "model not found (check GEMINI_MODEL)",
+        429: "quota or rate limit reached on this key",
+    }.get(code, "Gemini server problem" if code >= 500 else "unexpected answer")
+
+
+def gemini_probe():
+    """One tiny Gemini call to find out why chat fails. Never returns the key."""
+    cfg = settings()
+    if not cfg["api_key"]:
+        return "skipped (GOOGLE_API_KEY missing)"
+    with _probe_lock:                      # a public address that spends a little quota: max 6 a minute
+        now = time.time()
+        _probe_times[:] = [t for t in _probe_times if now - t < 60]
+        if len(_probe_times) >= 6:
+            return "skipped (too many tests, wait a minute)"
+        _probe_times.append(now)
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/{cfg['model']}:generateContent"
+    body = {"contents": [{"role": "user", "parts": [{"text": "Reply with the single word OK."}]}],
+            "generationConfig": {"temperature": 0}}
+    try:
+        r = requests.post(url, json=body, timeout=15,
+                          headers={"x-goog-api-key": cfg["api_key"], "Content-Type": "application/json"})
+    except requests.Timeout:
+        return "no answer in 15s (Azure may be blocked from generativelanguage.googleapis.com)"
+    except requests.RequestException as e:
+        return f"network error ({type(e).__name__}): Azure could not reach Google's Gemini address"
+    if r.status_code == 200:
+        return "ok"
+    try:
+        msg = str(r.json().get("error", {}).get("message", ""))
+    except ValueError:
+        msg = ""
+    msg = " ".join(msg.replace(cfg["api_key"], "[key]").split())[:200]
+    return f"HTTP {r.status_code}: {_gemini_hint(r.status_code)}" + (f" - Google says: {msg}" if msg else "")
+
+
+def handle_health(deep=False):
+    """Safe to open in a browser: names missing settings, never shows a secret.
+    deep=True (/api/health?deep=1) also makes one tiny Gemini call and reports how it went."""
     cfg = settings()
     missing = [] if cfg["api_key"] else ["GOOGLE_API_KEY"]
     sheet = "ok"
@@ -452,5 +499,10 @@ def handle_health():
     except Exception as e:
         sheet = f"error ({type(e).__name__})"
     ok = not missing and sheet == "ok"
-    return (200 if ok else 503), {"status": "ok" if ok else "problem", "missing_settings": missing,
-                                  "sheet": sheet, "rows": len(_kb["docs"]), "model": cfg["model"]}
+    out = {"status": "ok" if ok else "problem", "missing_settings": missing,
+           "sheet": sheet, "rows": len(_kb["docs"]), "model": cfg["model"]}
+    if deep:
+        out["gemini"] = gemini_probe()
+        if out["gemini"] != "ok":
+            out["status"], ok = "problem", False
+    return (200 if ok else 503), out
