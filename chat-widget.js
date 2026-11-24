@@ -589,9 +589,11 @@
     setMood("think");
     save();
 
-    // the last few messages (before this question) go with it, so the assistant can follow the conversation
+    // the last few messages (before this question) go with it, so the assistant can follow the conversation.
+    // Each answer carries the server's signature ("sig"); the server ignores earlier answers without a valid one.
     var history = state.messages.slice(0, -1).slice(-CFG.historyMessages).map(function (m) {
-      return { role: m.role === "user" ? "user" : "bot", text: String(m.text).slice(0, 1500) };
+      if (m.role === "user") return { role: "user", text: String(m.text).slice(0, 1500) };
+      return { role: "bot", text: String(m.text), sig: m.sig || "" };
     });
 
     var controller = (typeof AbortController !== "undefined") ? new AbortController() : null;
@@ -615,7 +617,7 @@
       .then(function (r) {
         removeNode(typing);
         if (r.ok && r.data && typeof r.data.answer === "string" && r.data.answer.trim()) {
-          state.messages.push({ role: "bot", text: r.data.answer });
+          state.messages.push({ role: "bot", text: r.data.answer, sig: typeof r.data.sig === "string" ? r.data.sig : "" });
           addMessage("bot", r.data.answer);
           setMood("yes", CFG.reactionSeconds);
         } else {
