@@ -21,7 +21,7 @@ window.NEXTGEN_DATA["2026"] = {
   entries: [
      {
       title: "Emergency Jewelry: Kinetic-Powered Mesh Wearables for Decentralized Public Safety",
-      school: "Triology's System: Far Eastern University - Alabang",
+      school: "Triology's System: Cordillera Regional Science High School",
       video: "GTl2K-zFIDQ",
       description: "A subtle, piece of jewelry (e.g. a heart-shaped pendant) with a recessed tactile micro-switch button. It uses kinetic and body-heat energy harvesting for national energy emergencies and rolling brownouts when conventional device charging fails. In an emergency or automatic activation with fall detection for incapacitated people, it uses a LoRaWAN peer-to-peer mesh network to send encrypted GPS coordinates and pre-registered medical profiles directly to municipal emergency hubs, bypassing dead cell towers.",
       sectors: ["energy"]
